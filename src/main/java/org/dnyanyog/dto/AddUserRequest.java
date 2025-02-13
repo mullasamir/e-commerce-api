@@ -1,36 +1,51 @@
 package org.dnyanyog.dto;
 
-import java.sql.SQLException;
-
-import org.dnyanyog.common.DbUtils;
-
 public class AddUserRequest {
-	public String fname;
-	public String lname;
-	public int age;
-	public String gender;
-	public String email;
-	public String password;
-	
-	public AddUserRequest(String fname,String lname, int age ,String email, String gender, 
-			String password) {
-		this.fname=fname;
-		this.lname=lname;
-		this.age=age;
-		this.password=password;
-		this.email=email;
-		this.gender=gender;
+	protected String fname;
+	protected String lname;
+	protected String login_name;
+	protected String email;
+	protected String password;
+
+	public String getFname() {
+		return fname;
 	}
-	
-	public boolean addUserIntoDb() throws SQLException {
-		
-		String query = "insert into e_user(fname , lname, age, gender, email, pass)values('" + fname
-				+ "', '" + lname + "', '" + age + "', '" + gender + "', '" + email + "', '"
-				+ password + "')";
-		
-		int rowsInserted= DbUtils.executeQuery(query);
-		return rowsInserted>0;
-	
+
+	public void setFname(String fname) {
+		this.fname = fname;
 	}
+
+	public String getLname() {
+		return lname;
+	}
+
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+
+	public String getLogin_name() {
+		return login_name;
+	}
+
+	public void setLogin_name(String login_name) {
+		this.login_name = login_name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 
 }
